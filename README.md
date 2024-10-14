@@ -1,4 +1,4 @@
-![code coverage](https://github.com/unbearablelightnessofbeing/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
+![code coverage](https://github.com/UnbearableLightnessOfBeing/learn-cicd-starter/actions/workflows/ci.yaml/badge.svg)
 
 # learn-cicd-starter (Notely)
 

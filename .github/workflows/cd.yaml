@@ -4,16 +4,19 @@ on:
 
 jobs:
   deploy:
-    name: Deploy
-
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.23.0'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
 
-      - name: Run build
-        run: ./scripts/buildprod.sh
+    - name: 'Use gcloud CLI'
+      run: 'gcloud info'
+
+    - name: Run build
+      run: gcloud builds submit --tag us-central1-docker.pkg.dev/deductive-motif-436614-j3/ci-cd-repo/notely:latest .
+      
+

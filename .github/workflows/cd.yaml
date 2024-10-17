@@ -19,6 +19,9 @@ jobs:
     - name: 'show creds'
       run: echo "${{ secrets.GCP_CREDENTIALS }}"
 
+    - name: 'show files'
+      run: ls -lash
+
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
 
